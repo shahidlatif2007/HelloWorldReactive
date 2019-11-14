@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
          */
         
         searchBar
-            .rx.text
+            .rx.text // We need to oberve the text changes in Search Bar.
             .orEmpty // Make it non-optional
             .subscribe(onNext: { [weak self] query in
                 self?.viewModel.shownCities = self?.viewModel.cities.filter({$0.hasPrefix(query)})
