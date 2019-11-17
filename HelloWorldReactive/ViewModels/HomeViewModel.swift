@@ -8,12 +8,14 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class HomeViewModel {
-    var cities:[String]!
-    var shownCities:[String]!
+    var cities = ["Pakistan", "UAE", "Saudia", "Germany", "Oman"]
+    
+    var shownCities:BehaviorRelay<[String]> = BehaviorRelay(value: [])
+    
     init() {
-        cities = ["Pakistan", "UAE", "Saudia", "Germany", "Oman"]
-        shownCities = cities
+        shownCities.accept(cities)
     }
 }

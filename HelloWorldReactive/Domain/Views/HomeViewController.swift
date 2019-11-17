@@ -31,28 +31,27 @@ class HomeViewController: UIViewController {
          * In this example lets work on UISearchBar with reactive.
          */
         
+    
         searchBar
             .rx.text // We need to oberve the text changes in Search Bar.
             .orEmpty // Make it non-optional
-            .subscribe(onNext: { [weak self] query in
-                self?.viewModel.shownCities = self?.viewModel.cities.filter({$0.hasPrefix(query)})
-                self?.countriesTableView.reloadData()
+            .subscribe({ [weak self] query in
+                
+                let filteredCounties = self?.viewModel.cities.filter() {$0.hasPrefix(query.element ?? "")}
+                self?.viewModel.shownCities.accept(filteredCounties ?? [])
+ 
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.shownCities.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell") as! HomeTableViewCell
-        let country = viewModel.shownCities[indexPath.row]
-        cell.countryNameLabel.text = country
-        return cell
+        viewModel
+            .shownCities
+            .bind(to: countriesTableView.rx.items) { (tableView, row, countryName) in
+                
+                guard let homeCell = tableView.dequeueReusableCell(withIdentifier: "homeCell") as? HomeTableViewCell else { return UITableViewCell() }
+                homeCell.countryNameLabel.text = countryName
+                return homeCell
+            }
+            .disposed(by: disposeBag)
+        
     }
 }
-

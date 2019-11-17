@@ -23,14 +23,14 @@
                                 <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeCell" id="cuH-dS-s8B" customClass="HomeTableViewCell" customModule="HelloWorldReactive" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cuH-dS-s8B" id="yPZ-Dg-V2N">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="21.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTl-Ek-G58">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="21.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -49,10 +49,6 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="vU3-Ah-V26"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="eOg-Hf-PMG"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
