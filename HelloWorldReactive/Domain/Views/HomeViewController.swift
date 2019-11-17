@@ -53,5 +53,12 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        // Handling click
+        countriesTableView
+            .rx
+            .modelSelected(String.self).subscribe { (value) in
+                print(value.element ?? "")
+            }
+            .disposed(by: disposeBag)
     }
 }
